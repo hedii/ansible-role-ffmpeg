@@ -1,0 +1,9 @@
+---
+# The path where temp installation files will be stored
+ffmpeg_temp_path: "/tmp/ffmpeg"
+
+# The final path of ffmpeg executable
+ffmpeg_executable_path: "/usr/bin/ffmpeg"
+
+# The final path of ffprobe executable
+ffprobe_executable_path: "/usr/bin/ffprobe"

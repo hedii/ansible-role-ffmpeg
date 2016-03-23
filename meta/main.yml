@@ -1,0 +1,16 @@
+galaxy_info:
+  author: hedii
+  description: ffmpeg installation for Linux/UNIX.
+  company: hedii
+  license: MIT
+  min_ansible_version: 2.0
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  galaxy_tags:
+    - system
+dependencies: []
