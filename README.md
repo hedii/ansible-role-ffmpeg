@@ -1,5 +1,5 @@
-Ansible role: ffmpeg
-====================
+Ansible role: ffmpeg - https://galaxy.ansible.com/hedii/ffmpeg/
+===============================================================
 
 [![Build Status](https://travis-ci.org/hedii/ansible-role-ffmpeg.svg?branch=master)](https://travis-ci.org/hedii/ansible-role-ffmpeg)
 
