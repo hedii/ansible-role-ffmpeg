@@ -39,7 +39,7 @@ script:
   - ffmpeg -version
 
   # Check if ffprobe is installed and working.
-  - ffmpeg -version
+  - ffprobe -version
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
