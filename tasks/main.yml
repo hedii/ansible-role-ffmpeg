@@ -46,4 +46,3 @@
 - name: Delete temp directory
   file: path={{ ffmpeg_temp_path }}
         state=absent
-        recurse=yes
