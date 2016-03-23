@@ -25,11 +25,13 @@
 
 - name: Move ffmpeg to executables directory
   command: mv {{ ffmpeg_temp_path }}/ffmpeg {{ ffmpeg_executable_path }}
-  creates: "{{ ffmpeg_executable_path }}"
+  args:
+    creates: "{{ ffmpeg_executable_path }}"
 
 - name: Move ffprobe to executables directory
   command: mv {{ ffmpeg_temp_path }}/ffprobe {{ ffprobe_executable_path }}
-  creates: "{{ ffprobe_executable_path }}"
+  args:
+    creates: "{{ ffprobe_executable_path }}"
 
 - name: Make ffmpeg executable by all users
   file: path={{ ffmpeg_executable_path }}
