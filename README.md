@@ -34,9 +34,9 @@ None.
 Example Playbook
 ----------------
 ```yml
-  - hosts: servers
+- hosts: servers
   roles:
-    - { role: hedii.ffmpeg }
+    - hedii.ffmpeg
 ```
 
 License
