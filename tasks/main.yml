@@ -1,20 +1,25 @@
 ---
 - name: Check if ffmpeg is already installed
-  stat: path={{ ffmpeg_executable_path }}
+  stat:
+    path: "{{ ffmpeg_executable_path }}"
   register: ffmpeg_bin
 
 - name: Check if ffprobe is already installed
-  stat: path={{ ffprobe_executable_path }}
+  stat:
+    path: "{{ ffprobe_executable_path }}"
   register: ffprobe_bin
 
 - name: Create a temp directory
-  file: path={{ ffmpeg_temp_path }} state=directory
+  file:
+    path: "{{ ffmpeg_temp_path }}"
+    state: directory
   when: (not ffmpeg_bin.stat.exists) or
         (not ffprobe_bin.stat.exists)
 
 - name: Download from custom source
-  get_url: url=http://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz
-           dest={{ ffmpeg_temp_path }}/ffmpeg-git-64bit-static.tar.xz
+  get_url:
+    url: http://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz
+    dest: "{{ ffmpeg_temp_path }}/ffmpeg-git-64bit-static.tar.xz"
   when: (not ffmpeg_bin.stat.exists) or
         (not ffprobe_bin.stat.exists)
 
@@ -34,15 +39,18 @@
     creates: "{{ ffprobe_executable_path }}"
 
 - name: Make ffmpeg executable by all users
-  file: path={{ ffmpeg_executable_path }}
-        mode=0755
+  file:
+    path: "{{ ffmpeg_executable_path }}"
+    mode: 0755
   when: not ffmpeg_bin.stat.exists
 
 - name: Make ffprobe executable by all users
-  file: path={{ ffprobe_executable_path }}
-        mode=0755
+  file:
+    path: "{{ ffprobe_executable_path }}"
+    mode: 0755
   when: not ffprobe_bin.stat.exists
 
 - name: Delete temp directory
-  file: path={{ ffmpeg_temp_path }}
-        state=absent
+  file:
+    path: "{{ ffmpeg_temp_path }}"
+    state: absent
