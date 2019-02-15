@@ -18,13 +18,13 @@
 
 - name: Download from custom source
   get_url:
-    url: http://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz
-    dest: "{{ ffmpeg_temp_path }}/ffmpeg-git-64bit-static.tar.xz"
+    url: https://johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz
+    dest: "{{ ffmpeg_temp_path }}/ffmpeg-git-amd64-static.tar.xz"
   when: (not ffmpeg_bin.stat.exists) or
         (not ffprobe_bin.stat.exists)
 
 - name: Unarchive to temp directory
-  shell: tar xf {{ ffmpeg_temp_path }}/ffmpeg-git-64bit-static.tar.xz --strip-components=1 -C {{ ffmpeg_temp_path }}/
+  shell: tar xf {{ ffmpeg_temp_path }}/ffmpeg-git-amd64-static.tar.xz --strip-components=1 -C {{ ffmpeg_temp_path }}/
   when: (not ffmpeg_bin.stat.exists) or
         (not ffprobe_bin.stat.exists)
 
